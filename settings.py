@@ -13,6 +13,10 @@ class Settings(BaseSettings):
     POSTGRES_PORT: str
     POSTGRES_DB: str
 
+    SECRET_KEY: str
+    TOKEN_URL: str
+    ALGORITHM: str
+
     model_config = SettingsConfigDict(env_file='.env')
 
     # class Config:
