@@ -3,6 +3,7 @@ from sqlalchemy.orm import Mapped, mapped_column
 from typing import Optional
 from sqlalchemy import ForeignKey
 from enum import Enum as PyEnum
+from sqlalchemy import Enum
 
 
 class QuestionType(PyEnum):
@@ -17,6 +18,6 @@ class Question(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     topic_id: Mapped[int] = mapped_column(ForeignKey('topics.id'), nullable=False)
     question_text: Mapped[str] = mapped_column(nullable=False)
-    question_type: Mapped[QuestionType] = mapped_column(nullable=False)
+    question_type: Mapped[str] = mapped_column(nullable=False)
     difficulty: Mapped[int] = mapped_column(nullable=False)
     correct_answer: Mapped[Optional[str]] = mapped_column(nullable=True)
